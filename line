@@ -1,0 +1,13 @@
+<?php
+// Register the Composer autoloader...
+require __DIR__ . '/vendor/autoload.php';
+
+define('PROJECT_ROOT', __DIR__);
+
+\Lithe\Support\Env::load();
+
+// Load the database configuration required for database operations in the console commands.
+define('DB_CONNECTION', include __DIR__ . '/src/database/config/database.php');
+
+// Start the console application by listening to the command-line arguments passed to the script.
+\Lithe\Console\Line::listen($argv);
